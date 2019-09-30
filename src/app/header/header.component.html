@@ -1,0 +1,16 @@
+<header>
+    <form>
+        <input #filterString type="text" placeholder="search...">
+    </form>
+    <h1>Bike Store</h1>
+    <span class="cartItems">
+    <a routerLink="/order-review">
+        <span *ngIf="cartItems$ | async as cartItemsno" class="cart-text float-right">cart</span>
+    </a>
+    <span *ngIf="cartItems$ | async as cartItemsno" class="cart-badge">
+        <a routerLink="/order-review">
+            <span class="badge badge-danger cart-items float-right">{{cartItemsno}}</span>
+        </a>
+    </span>
+    </span>
+</header>

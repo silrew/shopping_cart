@@ -1,0 +1,85 @@
+<div class="wrapper border border-light d-flex shadow-sm">
+  <div class="row mx-auto" style="width:100%; ">
+    <div class="col-xs-12 col-sm-6 col-md-4 my-3 "  *ngFor="let bike of products">
+      <div *ngIf="bike.product_type==='bike'">
+      <div class="card bg-light  text-muted"
+       >
+        <div class="card-body">
+          <div class="card-subtitle mb-1">
+            {{bike?.name}}
+          </div>
+          <div class="prod-image ">
+            <img src={{bike?.image}} class="image-responsive w-98 shadow mx-auto rounded">
+          </div>
+          <div class="row product-details mt-2 text-muted ">
+            <div class="col-6 ">
+              {{bike?.price | currency: 'USD': 'code'}}
+             
+            </div>
+            <div class="col-3 price">
+               <input type="number" class="input-sm" #itemCount   min="1" max="5" placeholder="1">
+            </div>
+          </div>
+               
+            <a  md-raised-button 
+              class="w-100  my-2 btn-link"  data-toggle="modal" 
+              data-target="#productAccesories" (click)="openModal(bike, itemCount.value)">
+            Add to Cart
+            </a>
+         
+          
+        </div>
+    </div>
+    </div>
+  </div> 
+  </div> 
+
+  <!-- Modal -->
+  <div class="modal fade p-sm-5" id="productAccesories" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="exampleModalCenterTitle">Accessories</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body px-4">
+        <div class="row">
+          <div class=" col-sm -4 col-xs-5  ml-3  w-50">
+          <md-checkbox [(ngModel)]="acs">{{accessory?.name}}</md-checkbox>
+          </div>
+          <div class="col-xs-3 xs-offset-4 ml-5" price>
+             {{accessory?.price | currency :'USD' : 'code'}} 
+          </div>
+          <div class="d-none d-sm-block col-3">
+            <img src={{accessory?.image}} class="rounded shadow sm-img">
+          </div>
+        </div>
+        <h6 class="modal-title" >Insurance</h6>
+        <hr>
+        <div class="row">
+          <div class="col-sm -4 col-xs-5 ml-3 w-50" >
+          <md-checkbox [(ngModel)]="ins">{{insurance?.name}}</md-checkbox>
+          </div>
+          <div class="col-xs-3 xs-offset-2 ml-5">
+             {{insurance?.price | currency :'USD' : 'code'}} 
+          </div>
+          <div class="d-none d-sm-block col-3">
+            <img src={{insurance?.image}} class="rounded shadow sm-img">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+        [disabled]="((!ins || acs)  && (ins || !acs)) && ( !ins || !acs)"
+         (click)="addAccessory(acs,ins)">Add To Cart</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal"
+            (click)="orderReview()">
+            Order Review
+          </button>
+      </div>
+    </div>
+  </div>
+</div>

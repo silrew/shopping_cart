@@ -1,0 +1,50 @@
+
+.order-review{
+    height: 79vh !important;
+    width: 95vw !important;
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgray;
+}
+ .item-image{
+     min-width:50%;
+     min-height: 100%;
+     border: 1px solid darkgray;
+     border: 1px solid darkgray;
+ }
+ .accessories{
+   width: 100%;
+   font-size: 12px;
+ }   
+ .total_price{
+    margin-left: 8%
+ }
+ .continue-shopping{
+    margin-left: 5%;
+    margin-top: 15%;
+ }
+ .btn-continue-shopping{
+    margin-left:5%;
+    margin-bottom: 5%;
+ }
+ .title{
+     margin-left:7%;
+ }
+ .review-cart{
+     width: 85%;
+ }
+ btn{
+    position: relative;
+    bottom: 6px;
+ }
+ @media (max-width: 768px) { 
+    input{
+      width: 15px;
+      margin-left: 10px;
+    }
+    .order-review{
+      font-size:12px;
+    }
+ }

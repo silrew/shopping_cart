@@ -1,0 +1,53 @@
+
+  header {
+   background-color: #6c757d;
+    color: #fff;
+      padding: .5rem 1%; 
+     
+  }
+   
+   header h1 {
+        font-size: 2rem;
+        font-weight: 200; }
+   header form {
+        float: right; }
+   header form input {
+        width: 6rem;
+        border-radius: 10px;
+        margin-right: 2%;
+        padding: .2rem;
+        border: none;
+        transition: width .5s; }
+    header form input:focus {
+        width: 8rem; 
+      }
+      .hidden{
+        visibility: hidden;
+      }
+  
+    .cart-text{
+    position: absolute;
+    color: #e83333;
+    font-weight: bolder;
+    right: 7%;
+    top: 6%;
+  }
+  .cart-badge{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+.cart-items{
+    position: absolute;
+    right: 4%;
+    top: 7%;
+}
+@media (max-width: 768px) { 
+        header{ padding:4px 2px;
+        font-size: 10px;
+        font-weight:100;
+        }
+        header h1{
+          font-size: 2rem;
+        }
+  }
